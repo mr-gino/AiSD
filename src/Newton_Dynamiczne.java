@@ -1,5 +1,5 @@
 public class Newton_Dynamiczne {
-    final static int N = 15;
+    final static int N = 5;
     final static int K = 3;
 
     public static void main(String[] args) {
