@@ -12,37 +12,37 @@ public class A5_Zachlanny {
         //Zachlannie po najmnijeszym koszcie zmiany
         boolean[] wykorzystane = new boolean[koszty.length];
 
-        int wiersz=0;
+        int wiersz = 0;
         int tempmin = Integer.MAX_VALUE;
-        for (int i=0;i<koszty.length;i++) {
-            for (int j=0;j<koszty.length;j++) {
-                if (koszty[i][j]<tempmin && koszty[i][j]>0) {
-                    wiersz=i;
+        for (int i = 0; i < koszty.length; i++) {
+            for (int j = 0; j < koszty.length; j++) {
+                if (koszty[i][j] < tempmin && koszty[i][j] > 0) {
+                    wiersz = i;
                 }
             }
         }
         wykorzystane[wiersz] = true;
         int tempwiersz = wiersz;
 
-        System.out.print("Kolejnosc: " + (wiersz+1) + " ");
+        System.out.print("Kolejnosc: " + (wiersz + 1) + " ");
         int suma = 0;
         int i = 0;
         while (true) {
             int pozycja = -1;
             int min = Integer.MAX_VALUE;
 
-            if (i<koszty.length) {
-                for(int j=0;j<koszty[wiersz].length;j++) {
-                    if (koszty[wiersz][j]<=min && koszty[wiersz][j]>0 && !wykorzystane[j]) {
+            if (i < koszty.length) {
+                for (int j = 0; j < koszty[wiersz].length; j++) {
+                    if (koszty[wiersz][j] <= min && koszty[wiersz][j] > 0 && !wykorzystane[j]) {
                         pozycja = j;
                         min = koszty[wiersz][j];
                     }
                 }
 
-                if (pozycja>-1) {
-                    System.out.print((pozycja+1) + " ");
+                if (pozycja > -1) {
+                    System.out.print((pozycja + 1) + " ");
                     suma += koszty[wiersz][pozycja];
-                    wiersz=pozycja;
+                    wiersz = pozycja;
                     wykorzystane[pozycja] = true;
                 } else break;
 
