@@ -8,6 +8,8 @@ public class A28_cw {
         for (int i = 0; i < nominal.length; i++)
             suma += (nominal[i] * ilosc[i]);
 
+        System.out.println("mamy " + suma);
+
 
         int kwota = 753;
         int i = 0;

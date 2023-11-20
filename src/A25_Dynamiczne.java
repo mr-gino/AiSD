@@ -5,8 +5,10 @@ public class A25_Dynamiczne {
         boolean dwa = false, trzy = false, dziesiec = false, sto = false;
 
         for (int i = 0; i < tab.length; i++) {
-            if (i == 0) tab[i] = 1000000;
-            else tab[i] = (int) (((tab[i - 1] * Math.exp(0.003) * 0.998) * 0.998));
+            if (i == 0)
+                tab[i] = 1000000;
+            else
+                tab[i] = (int) ((tab[i - 1] * Math.exp(0.003) * 0.998) * 0.998);
 
             if (!dwa && tab[i] < lososie / 2) {
                 System.out.println("Polowa: po " + i + " minutach");
