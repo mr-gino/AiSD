@@ -11,7 +11,7 @@ public class A28_cw_monte {
         int ilosc_prob = 100;
         int max_do_wydania = 0;
 
-        int kwota = 153;
+        int kwota = 753;
 
 
         for (int i = 0; i < ilosc.length; i++) {
@@ -29,13 +29,20 @@ public class A28_cw_monte {
                 int ile_monet = 0;
                 int[] wydane = new int[ilosc.length];
                 int do_wydania = kwota;
-                while (do_wydania > 0 && ile_monet < max_do_wydania) {
+                boolean mozliwosc = true;
+                while (do_wydania > 0 && ile_monet < max_do_wydania && mozliwosc) {
                     int los = rand.nextInt(nominal.length);
                     //System.out.println("tu jestem i los " + los + ", do wydania: " + do_wydania + " wylosowano " + nominal[los] + " i jest go " + (ilosc[los] - wydane[los]));
                     if (nominal[los] <= do_wydania && wydane[los] < ilosc[los]) {
                         wydane[los]++;
                         do_wydania = do_wydania - nominal[los];
                         ile_monet++;
+                    }
+
+                    for (int j = 0; j < nominal.length; j++) {
+                        if (nominal[j] <= do_wydania && (ilosc[j] - wydane[j]) > 0) {
+                            mozliwosc = true;
+                        } else mozliwosc = false;
                     }
                 }
                 if (ile_monet < best_monet) {
@@ -51,5 +58,4 @@ public class A28_cw_monte {
                 System.out.println(best_wydane[i] + " moneta po " + (nominal[i] / 100.0) + " zl");
         }
     }
-
 }
